@@ -45,12 +45,23 @@ function isIOS(){
   return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 }
+function isChrome(){
+  const ua = navigator.userAgent || '';
+  return /CriOS/i.test(ua) || (/Chrome/i.test(ua) && !/Edg|OPR/i.test(ua));
+}
 function openLedger(){
+  // すでにChromeなら、そのままGASのHTTPS URLを開く
+  if (isChrome()) {
+    window.location.href = 'https://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
+    return;
+  }
+  // iPhone/iPadのSafari・LINE等からはChromeへ渡す
   if (isIOS()) {
     window.location.href = 'googlechromes://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
-  } else {
-    window.location.href = 'https://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
+    return;
   }
+  // Android/PC等
+  window.location.href = 'https://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
 }
 </script>
 </head>
