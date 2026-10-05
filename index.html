@@ -3,37 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fffdf8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="GF 台帳管理">
-<title>GF 台帳管理</title>
+<meta name="apple-mobile-web-app-title" content="GOLD FIRST">
+<title>GOLD FIRST 業務システム</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/png" href="./icon.png">
 <link rel="apple-touch-icon" href="./icon.png">
 <style>
-html,body{margin:0;min-height:100%;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif}
-main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
-.card{width:min(420px,100%);text-align:center}
-.logo{width:150px;height:150px;border-radius:28px;object-fit:cover;margin-bottom:22px}
-h1{font-size:30px;margin:0 0 10px}
-p{color:#666;line-height:1.7}
-button,a.btn{display:block;width:100%;box-sizing:border-box;border:0;border-radius:18px;padding:18px 16px;margin-top:18px;font-size:18px;font-weight:700;text-decoration:none;cursor:pointer}
-button{background:#111;color:#fff}
-a.btn{background:#eee;color:#111}
-.small{font-size:13px;color:#999;margin-top:18px}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;color:#171717}
+body{
+ background:
+ radial-gradient(circle at 10% 8%,rgba(207,164,64,.12),transparent 22%),
+ radial-gradient(circle at 95% 62%,rgba(207,164,64,.10),transparent 25%),
+ linear-gradient(180deg,#fff 0%,#fffdf8 100%);
+}
+main{min-height:100vh;display:flex;justify-content:center;padding:44px 22px 34px}
+.portal{width:min(440px,100%);text-align:center}
+.logo{width:190px;height:190px;object-fit:contain;margin:8px auto 8px;display:block}
+.goldline{width:62px;height:2px;background:#c69a2d;margin:4px auto 26px}
+h1{font-size:34px;line-height:1.25;margin:0 0 14px;font-weight:800;letter-spacing:.02em}
+.sub{font-size:16px;line-height:1.7;color:#777;margin:0 0 38px}
+.menu{
+ width:100%;border:1px solid #eee;background:rgba(255,255,255,.96);
+ border-radius:22px;padding:18px;display:flex;align-items:center;gap:16px;
+ text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.08);cursor:pointer;
+ -webkit-tap-highlight-color:transparent;
+}
+.menu:active{transform:scale(.99)}
+.menuIcon{width:64px;height:64px;border-radius:17px;background:#fff4d8;display:grid;place-items:center;font-size:31px;flex:none}
+.menuText{flex:1;min-width:0}
+.menuTitle{display:block;font-size:20px;font-weight:800}
+.menuSub{display:block;font-size:14px;color:#777;margin-top:5px}
+.arrow{font-size:34px;color:#c49a31;line-height:1}
+.note{margin-top:42px;padding:16px 18px;border-radius:15px;background:rgba(255,255,255,.72);color:#888;font-size:13px;line-height:1.7}
 </style>
 <script>
 function isIOS(){
   return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 }
-function openGF(){
+function openLedger(){
   if (isIOS()) {
-    // iPhone/iPad: GASはSafariで開かず、Chromeアプリへ渡す
     window.location.href = 'googlechromes://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
   } else {
-    // Android/PC: 通常のHTTPSで開く
     window.location.href = 'https://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec';
   }
 }
@@ -41,14 +56,23 @@ function openGF(){
 </head>
 <body>
 <main>
-  <div class="card">
-    <img class="logo" src="./icon.png" alt="GF 台帳管理">
-    <h1>GF 台帳管理</h1>
-    <p>車両・ドライバー管理</p>
-    <button type="button" onclick="openGF()">GF 台帳管理を開く</button>
-    <a class="btn" href="https://script.google.com/macros/s/AKfycbzDrU44saPdqQLxP3yyTPA8UgGkbw0fWSkNcUZp9XCEF2QErzk5uQki4_4eVDVwl4Hw0g/exec">通常ブラウザで開く</a>
-    <div class="small">iPhoneは「GF 台帳管理を開く」からChromeを起動します。</div>
-  </div>
+ <div class="portal">
+   <img class="logo" src="./icon.png" alt="GOLD FIRST">
+   <div class="goldline"></div>
+   <h1>業務システム</h1>
+   <p class="sub">GOLD FIRST の各種システムに<br>アクセスできます。</p>
+
+   <button class="menu" type="button" onclick="openLedger()">
+     <span class="menuIcon">🚗</span>
+     <span class="menuText">
+       <span class="menuTitle">車両・ドライバー管理</span>
+       <span class="menuSub">開く</span>
+     </span>
+     <span class="arrow">›</span>
+   </button>
+
+   <div class="note">この画面をホーム画面に追加してご利用ください。<br>シフト管理などは後からここへ追加できます。</div>
+ </div>
 </main>
 </body>
 </html>
