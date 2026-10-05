@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<rect width="1024" height="1024" rx="190" fill="white"/>
+<rect x="28" y="28" width="968" height="968" rx="165" fill="none" stroke="#b89545" stroke-width="26"/>
+<text x="512" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="260" font-weight="700" fill="#b89545">GF</text>
+<text x="512" y="455" text-anchor="middle" font-family="Arial,sans-serif" font-size="70" font-weight="700" letter-spacing="8">GOLDFIRST</text>
+<path d="M245 625h95l55-92h235l62 92h78c34 0 62 28 62 62v62H192v-62c0-34 19-62 53-62zm113 0h274l-36-52H390z" fill="#111"/>
+<circle cx="330" cy="760" r="58" fill="#111"/><circle cx="700" cy="760" r="58" fill="#111"/>
+<text x="512" y="920" text-anchor="middle" font-family="'Noto Sans JP','Arial',sans-serif" font-size="92" font-weight="700">台帳管理</text>
+</svg>
